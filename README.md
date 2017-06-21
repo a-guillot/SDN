@@ -103,3 +103,11 @@ An example of the CLI mode test would be `sudo mn --topo=linear,5 --test=pingall
 ## Applications
 
 ### Handling loops
+
+[topology.py](topology.py) works well when the number of switches is <= 2 because it doesn't create any loops.
+
+However, the presence of loops will prevent hosts from communicating with each other since broadcast messages will flood the network and prevent any communication.
+
+The objective of this section is to correct this issue with increasingly less "naïve" approaches.
+
+These solutions can be found [here](loops/).
