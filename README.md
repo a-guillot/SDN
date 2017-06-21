@@ -34,7 +34,7 @@ Topologies can be created with `sudo mn --topo=<topo>`, where `<topo>` specifies
 [Miniedit](http://www.brianlinkletter.com/how-to-use-miniedit-mininets-graphical-user-interface/) is a GUI that allows one to create topologies graphically.
 
 It can be used to create topologies such as this one :
-![miniedit topology](topo.png "A miniedit topology")
+![miniedit topology](miniedit.png "A miniedit topology")
 
 Miniedit can then be used to specify the equipments' characteristics (e.g. IP addresses, MAC addresses, etc.).
 
@@ -44,9 +44,9 @@ Lastly, it is possible to save topologies and configurations for later usage.
 
 #### Using Python
 
-Finally, it is also possible to create a Python program that will create the topology. 
+Finally, it is also possible to create a Python program that will create the topology.
 
-The code required to create the topology presented above is in [topology.py](www.google.com).
+The code required to create the topology presented above is in [topology.py](topology.py).
 
 ### Getting information about the topology
 
