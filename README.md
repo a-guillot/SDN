@@ -2,10 +2,10 @@
 Learning how to use SDN with the implementation of small use-cases.
 
 ## Resources
-The most important resource is the [Ryu Book](https://osrg.github.io/ryu-book/en/Ryubook.pdf).
+The most important resource is the [Ryu Book](https://osrg.github.io/ryu-book/en/Ryubook.pdf). It is detailing how this controller operates, and provides tutorials.
 
 The examples will be implemented inside [Mininet](http://mininet.org/), a network visualization tool.
-Incidentally, every command described in this document are meant to be used inside the mininet virtual machine.
+Incidentally, every command described in this document are meant to be used inside the Mininet virtual machine.
 
 ## Basic Mininet Walkthrough
 
@@ -45,7 +45,7 @@ Topologies can be created with `sudo mn --topo=<topo>`, where `<topo>` specifies
 [Miniedit](http://www.brianlinkletter.com/how-to-use-miniedit-mininets-graphical-user-interface/) is a GUI that allows one to create topologies graphically.
 
 It can be used to create topologies such as this one :
-![miniedit topology](miniedit.png "A miniedit topology")
+![Miniedit topology](miniedit.png "A Miniedit topology")
 
 Miniedit can then be used to specify the equipments' characteristics (e.g. IP addresses, MAC addresses, etc.).
 
@@ -64,13 +64,41 @@ This problem will be addressed in a later section.
 
 ### Changing the switch model
 
+Different switch models can support different OpenFlow versions and different features.
+
+In order to change the switch version, the following command is required:
+
+`sudo mm --switch=<switch>`, where `<switch>` can equal several values such as `ovs` (Open VSwitch, which is the default value on my Mininet VM).
+
 ### Changing the controller model
+
+Controller models can also be changed.
+
+Setting to controller to Ryu (which is going to be used in the following examples) can be done with the following command:
+
+`sudo mn --controller=ryu`
 
 ### Using Wireshark
 
+Wireshark can directly be used inside Mininet to capture and analyze packets using `sudo Wireshark &`.
+
+However, it can't be done in the virtual machine window: it is necessary to setup an SSH access with X forwarding enabled.
+The steps required to do so are detailed [here](https://github.com/mininet/openflow-tutorial/wiki/Set-up-Virtual-Machine#access-vm-via-ssh).
+
 ### Running commands on specific equipments
 
+Entering a command like `<equipment id> <command>` allows one to run `<command>` on `<equipment id>`.
+For example, `h1 ifconfig` will display h1's interfaces.
+
 ### Running Tests
+
+Mininet contains specific tests that can be performed on topologies.
+
+It is possible to perform these tests in CLI mode, or in python.
+
+An example of the CLI mode test would be `sudo mn --topo=linear,5 --test=pingall`, where `pingall` will test if hosts can communicate.
+
+[topology.py](topology.py) contains this very same test written in a pythonic way, with the `pingAll()` method.
 
 ## Applications
 
