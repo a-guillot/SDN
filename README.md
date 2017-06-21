@@ -23,6 +23,17 @@ Lastly, it is possible to activate different levels of verbosity (e.g. `debug` o
 
 The command `sudo mn -c` can be used to try and fix Mininet's state if it crashes.
 
+This is particularly useful after an error "RTNETLINK: FILE EXISTS".
+
+### Getting information about the topology
+
+When in CLI mode it is possible to access the topology's information with several commands:
+- `nodes` to see a list of the nodes, i.e. hosts, switches and controllers.
+- `links` to see every link, including both nodes and both interfaces
+- `ports` to see every interface of every switch, including which node is connected to this interface
+- `net` to display network connections
+- `dump` to show every node, every adjacency that belongs to this node, IP addresses and the corresponding pid.
+
 ### Creating Topologies
 
 #### When entering CLI
@@ -48,14 +59,19 @@ Finally, it is also possible to create a Python program that will create the top
 
 The code required to create the topology presented above is in [topology.py](topology.py).
 
-### Getting information about the topology
-
-### Modifying links
+An interesting point is that [topology.py](topology.py) works for a number of switches that's lower or equal to two because there are no cycles.
+This problem will be addressed in a later section.
 
 ### Changing the switch model
+
+### Changing the controller model
 
 ### Using Wireshark
 
 ### Running commands on specific equipments
 
 ### Running Tests
+
+## Applications
+
+### Handling loops
